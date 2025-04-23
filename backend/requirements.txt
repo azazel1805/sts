@@ -1,0 +1,9 @@
+Flask
+gspread
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+python-dotenv
+Flask-Cors # Important for allowing frontend requests
+google-generativeai # For Gemini
+gunicorn # For Render deployment
