@@ -37,7 +37,7 @@ const questions = [
     { id: '3', text: "3. She ______ speak Spanish.", options: { a: 'love', b: 'can\'t', c: 'try', d: 'practice' } },
     { id: '4', text: "4. They ______ to the cinema last night.", options: { a: 'go', b: 'goes', c: 'went', d: 'going' } },
     { id: '5', text: "5. He ______ his homework right now.", options: { a: 'doing', b: 'do', c: 'does', d: 'is doing' } },
-    { id: '6', text: "6. We are ______ to the beach tomorrow.", options: { a: 'go', b: 'goes', c: 'are going', d: 'going' } }, // Note: 'are going' is grammatically better contextually
+    { id: '6', text: "6. We ______ to the beach tomorrow.", options: { a: 'go', b: 'goes', c: 'are going', d: 'going' } }, // Note: 'are going' is grammatically better contextually
     { id: '7', text: "7. I ______ eat vegetables.", options: { a: 'always', b: 'fast', c: 'last week', d: 'quickly' } },
     { id: '8', text: "8. There are ______ apples on the table.", options: { a: 'much', b: 'very', c: 'a lot', d: 'some' } }, // c or d could fit depending on quantity
     { id: '9', text: "9. Alternative word for: “dangerous”", options: { a: 'risky', b: 'difficult', c: 'safe', d: 'comfortable' } },
@@ -50,7 +50,7 @@ const questions = [
     { id: '16', text: "16. I will see you ______ Monday.", options: { a: 'on', b: 'in', c: 'at', d: 'above' } },
     { id: '17', text: "17. Opposite word for: “slow”", options: { a: 'dangerous', b: 'cool', c: 'fast', d: 'pretty' } },
     { id: '18', text: "18. What is your ______ name?", options: { a: 'sister\'s', b: 'sisters\'', c: 'sister', d: 'sisters' } },
-    { id: '19', text: "19. She ______ as a teacher, but today she is ______ for her exam.", options: { a: 'work / study', b: 'works / is studying', c: 'works / study', /* d option missing in OCR */ } }, // Added '/' for clarity
+    { id: '19', text: "19. She ______ as a teacher, but today she ______ for her exam.", options: { a: 'work / study', b: 'works / is studying', c: 'works / study', /* d option missing in OCR */ } }, // Added '/' for clarity
     { id: '20', text: "20. She ______ her keys yesterday.", options: { a: 'find', b: 'found', c: 'finds', d: 'have found' } },
     { id: '21', text: "21. Whose ______ is this?", options: { a: 'book', b: 'books', c: 'book\'s', d: 'books\'' } },
     { id: '22', text: "22. You should stop ______ me while I am talking.", options: { a: 'gossiping', b: 'talking', c: 'interrupting', d: 'telling' } },
