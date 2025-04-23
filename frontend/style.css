@@ -1,200 +1,377 @@
+/* --- THEME VARIABLES --- */
+:root {
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean sans-serif */
+    --font-family-headings: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Or a slightly different one if desired */
+
+    --primary-color: #4a90e2;       /* Softer, professional blue */
+    --primary-color-dark: #357abd;  /* Darker shade for hover/active */
+    --primary-color-rgb: 74, 144, 226; /* For rgba backgrounds */
+
+    --accent-color-submit: #50c878; /* Emerald green */
+    --accent-color-submit-dark: #40a060;
+    --accent-color-skip: #f5a623;    /* Saffron yellow */
+    --accent-color-skip-dark: #d48e1f;
+
+    --text-color: #333;
+    --text-color-light: #666;
+    --heading-color: #2c3e50;     /* Dark slate blue */
+
+    --background-color: #f8f9fa;   /* Very light gray */
+    --surface-color: #ffffff;      /* Card/container background */
+    --surface-alt-color: #f1f3f5; /* Slightly different surface (e.g., questions) */
+
+    --border-color: #dee2e6;       /* Light gray border */
+    --border-radius-base: 6px;
+    --border-radius-large: 10px;
+
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+    --spacing-unit: 1rem; /* Approx 16px */
+    --transition-speed: 0.25s;
+}
+
+/* --- GLOBAL RESETS & BASE STYLES --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #f4f4f4;
+    font-family: var(--font-family-base);
+    line-height: 1.7; /* Slightly more relaxed line height */
+    margin: 0; /* Remove default margin */
+    padding: calc(var(--spacing-unit) * 1.5); /* Add padding around */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
 }
 
+/* --- CONTAINER & LAYOUT --- */
 .container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 850px; /* Slightly wider */
+    margin: var(--spacing-unit) auto;
+    background: var(--surface-color);
+    padding: calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
 }
 
+/* --- TYPOGRAPHY --- */
 h1, h2, h3 {
-    color: #333;
+    color: var(--heading-color);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-unit);
+    font-family: var(--font-family-headings);
+    font-weight: 600; /* Slightly bolder */
+}
+
+h1 { font-size: 2rem; margin-bottom: calc(var(--spacing-unit) * 1.5); }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+
+p {
+    margin-bottom: var(--spacing-unit);
+}
+
+/* --- USER INFO FORM --- */
+.user-info {
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.user-info-fields { /* Wrapper for inputs if needed for layout */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: var(--spacing-unit); /* Spacing between fields */
+    margin-bottom: var(--spacing-unit);
 }
 
 .user-info label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: calc(var(--spacing-unit) * 0.3);
+    font-weight: 600;
+    color: var(--text-color-light);
+    font-size: 0.9rem;
 }
 
 .user-info input[type="text"] {
-    width: calc(50% - 12px); /* Adjust width as needed */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: inline-block; /* Or adjust layout */
+    flex: 1 1 calc(50% - var(--spacing-unit)); /* Grow, shrink, base size accounting for gap */
+    min-width: 150px; /* Prevent excessive shrinking */
+    padding: calc(var(--spacing-unit) * 0.75);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-base);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
-.user-info input[name="name"] { margin-right: 10px; }
 
+.user-info input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2); /* Focus ring */
+}
 
+/* --- BUTTONS --- */
+.button-container { /* Optional: Wrap button for centering */
+    text-align: center;
+    margin: calc(var(--spacing-unit) * 1.5) 0;
+}
+
+.btn { /* Base button class */
+    display: inline-block; /* Changed from block */
+    padding: calc(var(--spacing-unit) * 0.7) calc(var(--spacing-unit) * 1.5);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-base);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover:not(:disabled) {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.3); /* Focus ring */
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Specific Button Types */
 #start-test-btn {
-     display: block;
-     width: 150px;
-     margin: 15px auto 10px auto;
-     padding: 10px 15px;
+    /* Uses .btn styles, maybe make it larger? */
+     padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 2);
+     font-size: 1.1rem;
 }
 
+.skip-btn {
+    background-color: var(--accent-color-skip);
+    color: var(--text-color);
+}
+.skip-btn:hover:not(:disabled) {
+    background-color: var(--accent-color-skip-dark);
+}
+.skip-btn:focus {
+     box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.4);
+}
+
+
+.submit-btn {
+    background-color: var(--accent-color-submit);
+}
+.submit-btn:hover:not(:disabled) {
+    background-color: var(--accent-color-submit-dark);
+}
+ .submit-btn:focus {
+     box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.4);
+ }
+
+
+/* --- QUESTIONS --- */
 .question {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    background-color: var(--surface-alt-color);
+    border: 1px solid var(--border-color);
+    padding: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius-base);
 }
 
-.question p {
-    font-weight: bold;
-    margin-bottom: 15px;
+.question p { /* The question text itself */
+    font-weight: 600;
+    margin-bottom: var(--spacing-unit);
+    color: var(--heading-color);
+    font-size: 1.1rem;
+}
+
+.question ul { /* Assuming options are in a list */
+    list-style: none;
+    padding-left: 0;
+}
+
+.question li { /* Each option item */
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
 }
 
 .question label {
-    display: block;
-    margin-bottom: 8px;
+    display: block; /* Makes the whole area clickable */
+    padding: calc(var(--spacing-unit) * 0.75);
+    border-radius: var(--border-radius-base);
     cursor: pointer;
-    padding: 5px;
-    border-radius: 3px;
-    transition: background-color 0.2s ease;
-}
-
-.question input[type="radio"] {
-    margin-right: 10px;
-    vertical-align: middle; /* Align radio button better */
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    border: 1px solid transparent; /* Prepare for selected state border */
+    display: flex; /* Align radio and text nicely */
+    align-items: center;
 }
 
 .question label:hover {
-     background-color: #eef;
+     background-color: rgba(var(--primary-color-rgb), 0.08); /* Subtle hover */
 }
-/* Style for selected label maybe? */
+
+.question input[type="radio"] {
+    margin-right: calc(var(--spacing-unit) * 0.75);
+    flex-shrink: 0; /* Prevent radio from shrinking */
+    accent-color: var(--primary-color); /* Modern way to style radio */
+    width: 1.1em; /* Adjust size if needed */
+    height: 1.1em;
+    vertical-align: middle; /* Keep vertical alignment */
+}
+
+/* Style the label when its radio is checked */
 .question input[type="radio"]:checked + span {
-    font-weight: bold;
-    /* color: #0056b3; */
+     font-weight: 600;
+     /* color: var(--primary-color); */ /* Optional: change text color */
+}
+.question input[type="radio"]:checked ~ label { /* Or style parent LI/label directly */
+     background-color: rgba(var(--primary-color-rgb), 0.12);
+     border-color: rgba(var(--primary-color-rgb), 0.3);
+}
+.question input[type="radio"]:focus + span {
+     /* Optional: Add outline or similar to the text on focus if needed */
+     /* Might be redundant with radio's focus */
 }
 
 
+/* --- NAVIGATION BUTTONS --- */
 .navigation-buttons {
     display: flex;
-    justify-content: space-between; /* Distribute buttons */
-    margin-top: 20px;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit); /* Spacing between buttons */
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid var(--border-color); /* Separator line */
+    padding-top: calc(var(--spacing-unit) * 1.5);
 }
 
-.nav-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s ease;
-    margin: 5px; /* Add some space between buttons */
-}
-
-.nav-btn:hover {
-    background-color: #0056b3;
-}
-.nav-btn:disabled {
-     background-color: #cccccc;
-     cursor: not-allowed;
-}
-
-
-.skip-btn {
-    background-color: #ffc107;
-    color: #333;
-}
-.skip-btn:hover {
-    background-color: #e0a800;
-}
-
-.submit-btn {
-    background-color: #28a745;
-}
- .submit-btn:hover {
-    background-color: #218838;
-}
-
-
+/* --- PROGRESS INDICATOR --- */
 #progress-indicator {
     text-align: center;
-    margin-top: 15px;
-    color: #555;
+    margin-top: var(--spacing-unit);
+    color: var(--text-color-light);
     font-style: italic;
+    font-size: 0.9rem;
 }
 
-
+/* --- RESULTS AREA --- */
 .results-box {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 30px;
-    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
+    padding: calc(var(--spacing-unit) * 1.5);
+    margin-top: calc(var(--spacing-unit) * 2);
+    background-color: var(--surface-alt-color);
+    border-radius: var(--border-radius-base);
 }
 
  #results-summary p {
-     font-size: 1.1em;
-     margin-bottom: 10px;
+     font-size: 1.1rem;
+     margin-bottom: var(--spacing-unit);
+     color: var(--text-color);
+ }
+ #results-summary strong {
+     color: var(--primary-color); /* Highlight score */
  }
 
+ /* Incorrect Answers List */
  #wrong-answers-list {
      list-style-type: none;
      padding-left: 0;
+     margin-top: var(--spacing-unit);
  }
   #wrong-answers-list li {
-      background-color: #fff3f3;
-      border: 1px solid #fcc;
-      padding: 10px;
-      margin-bottom: 8px;
-      border-radius: 4px;
+      background-color: #fff0f1; /* Pale pink */
+      border: 1px solid #f9c6c9; /* Soft red border */
+      color: #a94442; /* Darker red text */
+      padding: var(--spacing-unit);
+      margin-bottom: var(--spacing-unit);
+      border-radius: var(--border-radius-base);
   }
-   #wrong-answers-list li span {
+   #wrong-answers-list li span { /* Your answer / Correct answer explanation */
        display: block;
        font-size: 0.9em;
-       color: #555;
+       color: #7c3f3d; /* Slightly muted red */
+       margin-top: calc(var(--spacing-unit) * 0.3);
    }
-    #wrong-answers-list li strong {
-       color: #c00;
-   }
+    #wrong-answers-list li strong { /* Incorrect Answer Text */
+       color: #c0392b; /* Stronger red */
+       font-weight: 600;
+    }
 
+/* --- AI FEEDBACK --- */
 #ai-feedback-box {
-     margin-top: 20px;
-     padding: 15px;
-     background-color: #e6f7ff;
-     border: 1px solid #b3e0ff;
-     border-radius: 5px;
+     margin-top: calc(var(--spacing-unit) * 1.5);
+     padding: calc(var(--spacing-unit) * 1.2);
+     background-color: #eaf6ff; /* Light blue background */
+     border: 1px solid #bde0ff; /* Slightly darker blue border */
+     border-radius: var(--border-radius-base);
 }
  #ai-feedback-box h3 {
-     margin-bottom: 10px;
-     color: #0056b3;
+     margin-bottom: var(--spacing-unit);
+     color: #2980b9; /* Nice blue heading */
+     text-align: left; /* Align left for readability */
  }
  #ai-feedback-content {
-     white-space: pre-wrap; /* Preserve formatting from AI */
-     line-height: 1.5;
+     white-space: pre-wrap;
+     line-height: 1.6;
+     color: var(--text-color);
+     font-size: 0.95rem;
  }
 
+/* --- UTILITY CLASSES --- */
 .hidden {
-    display: none;
+    display: none !important; /* Use important if necessary to override */
 }
 
 .error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
+    color: #c0392b; /* Consistent error red */
+    font-size: 0.9rem;
+    margin-top: calc(var(--spacing-unit) * 0.5);
     text-align: center;
+    font-weight: 500;
 }
 
 #loading-spinner {
     text-align: center;
-    padding: 20px;
-    font-size: 1.2em;
-    color: #007bff;
+    padding: calc(var(--spacing-unit) * 2);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    display: flex; /* For centering spinner/text */
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Add a simple spinner animation (optional) */
+#loading-spinner::before {
+    content: '';
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    border: 3px solid rgba(var(--primary-color-rgb), 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
 }
