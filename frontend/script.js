@@ -1,7 +1,7 @@
 // --- Configuration ---
 // IMPORTANT: Replace with your ACTUAL backend URL when deployed
 // For local dev with Flask running on port 5000:
-const BACKEND_URL = 'http://127.0.0.1:8080/submit';
+const BACKEND_URL = 'https://sts-c7jg.onrender.com/submit';
 // Example for Render deployment (replace 'your-app-name' etc.)
 // const BACKEND_URL = 'https://your-placement-test-app.onrender.com/submit';
 
