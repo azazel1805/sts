@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Test</h1>
+
+        <div id="user-info" class="user-info">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+            <button id="start-test-btn">Start Test</button>
+             <p id="user-info-error" class="error-message"></p>
+        </div>
+
+        <div id="test-container" class="hidden">
+            <!-- Questions will be loaded here by JavaScript -->
+             <div id="question-placeholder"></div>
+             <div class="navigation-buttons">
+                <button id="prev-btn" class="nav-btn">Previous</button>
+                <button id="skip-btn" class="nav-btn skip-btn">Skip Question</button>
+                <button id="next-btn" class="nav-btn">Next</button>
+                <button id="submit-btn" class="nav-btn submit-btn hidden">Submit</button>
+             </div>
+             <div id="progress-indicator">Question 1 / X</div>
+        </div>
+
+        <div id="results-container" class="hidden results-box">
+            <h2>Results</h2>
+            <div id="results-summary"></div>
+            <div id="results-details">
+                 <h3>Incorrect Answers:</h3>
+                 <ul id="wrong-answers-list"></ul>
+            </div>
+             <div id="ai-feedback-box" class="hidden">
+                 <h3>AI Feedback:</h3>
+                 <p id="ai-feedback-content"></p>
+             </div>
+             <div id="loading-spinner" class="hidden">Processing...</div>
+             <p id="submit-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
