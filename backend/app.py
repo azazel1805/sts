@@ -271,7 +271,7 @@ def handle_submission():
                 surname,
                 correct_count,
                 wrong_count,
-                wrong_summary_str # Log the readable summary
+                gemini_feedback # Log the readable summary
                 # Optionally log the raw JSON details: json.dumps(wrong_answers_details)
                 # Optionally log Gemini feedback: gemini_feedback
             ]
