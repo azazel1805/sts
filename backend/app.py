@@ -114,7 +114,7 @@ correct_answers_map = {
     '45': {'answer': 'd', 'topic': 'Vocabulary (Synonyms - Phrasal Verbs)'}, # a and b are very similar
     '46': {'answer': 'c', 'topic': 'Vocabulary (Adjectives - Personality)'},
     '47': {'answer': 'a', 'topic': 'Past Habits (used to)'},
-    '48': {'answer': 'b', 'topic': 'First Conditional'},
+    '48': {'answer': 'a', 'topic': 'First Conditional'},
     '49': {'answer': 'b', 'topic': 'Third Conditional'},
     '50': {'answer': 'd', 'topic': 'Phrasal Verbs (Clothing)'},
     '51': {'answer': 'd', 'topic': 'Relative Clauses (who for people - subject)'}, # b) whom if object, but here she's subject of 'met' relative clause
