@@ -49,6 +49,18 @@ body {
     -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
 }
 
+.logo {
+    display: block;       /* Makes the image behave like a block for centering */
+    margin: 20px auto;    /* Adds 20px top/bottom margin, auto left/right centers it */
+    max-width: 250px;     /* Limits the logo width - adjust this value as needed */
+    height: auto;         /* Keeps the aspect ratio correct */
+}
+
+/* You might want to adjust the top margin of the h1 if needed */
+h1 {
+    /* Add or adjust existing margin-top if the logo is too close */
+    /* Example: margin-top: 10px; */
+}
 /* --- CONTAINER & LAYOUT --- */
 .container {
     max-width: 850px; /* Slightly wider */
